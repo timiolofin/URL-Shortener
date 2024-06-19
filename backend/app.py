@@ -1,10 +1,11 @@
-from flask import Flask, request, jsonify, redirect
+from flask import Flask, request, jsonify, redirect, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import string
 import random
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='build')
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///urls.db'
 db = SQLAlchemy(app)
@@ -40,6 +41,14 @@ def shorten_url():
 def redirect_to_url(short_url):
     link = URL.query.filter_by(short_url=short_url).first_or_404()
     return redirect(link.original_url)
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -25,17 +25,19 @@ QuickLink is a simple URL shortener web application built with Flask for the bac
 
 ### Backend
 
-1. Navigate to the `backend` directory
+1. Navigate to the `backend` directory (cd backend)
 
-2. Create a virtual environment
+2. Create a virtual environment (python3 -m venv venv) 
 
-3. Install the required packages: (pip install -r requirements.txt)
+3. Activate the environment (source venv/bin/activate)
 
-4. Run the Flask application: (python app.py)
+4. Install the required packages: (pip install -r requirements.txt)
+
+5. Run the Flask application: (python app.py)
 
 ### Frontend 
 
-1. On another terminal, navigate to the frontend directory
+1. On another terminal, navigate to the frontend directory (cd frontend)
 
 2. Install the required packages: (npm install)
 
