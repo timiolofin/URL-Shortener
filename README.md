@@ -4,6 +4,8 @@
 
 QuickLink is a simple URL shortener web application built with Flask for the backend and React for the frontend.
 
+![QuickLink Screenshot](images/screenshot.png)
+
 ## Features
 
 - Shorten URLs
